@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/permissionFragment">
+
+    <fragment
+        android:id="@+id/filesFragment"
+        android:name="com.example.filemanager.FilesFragment"
+        android:label="fragment_files"
+        tools:layout="@layout/fragment_files" >
+        <action
+            android:id="@+id/action_filesFragment_self"
+            app:destination="@id/filesFragment" />
+        <argument
+            android:name="directoryPath"
+            app:argType="string"
+            android:defaultValue='' />
+    </fragment>
+    <argument
+        android:name="directoryPath"
+        android:defaultValue='' />
+    <fragment
+        android:id="@+id/permissionFragment"
+        android:name="com.example.filemanager.PermissionFragment"
+        android:label="PermissionFragment" >
+        <action
+            android:id="@+id/action_permissionFragment_to_filesFragment"
+            app:destination="@id/filesFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
